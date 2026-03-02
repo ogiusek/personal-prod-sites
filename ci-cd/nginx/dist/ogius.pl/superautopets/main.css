@@ -1,0 +1,112 @@
+body{
+	background-image: url(img/background.png);
+	background-size: 100vw;
+	background-attachment: fixed;
+	margin: 0px;
+	display: flex;
+	max-height: 100vh;
+}
+header, footer{
+	width: 13vw;
+	height: 86vh;
+	background-color: rgb(10, 10, 25);
+	border-radius: 5vh;
+
+
+	margin-left: 1vw;
+	margin-right: 1vw;
+	margin-top: 5vh;
+	margin-bottom: 5vh;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+header{order: 0;}
+footer{order: 2;}
+.options{
+	display: none;
+	overflow-y: scroll;
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+}
+.options::-webkit-scrollbar{display: none;}
+.pets{display: block;}
+.button{
+	transition: 1s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-position: 50% 50%;
+	background-size: 13vw;
+	background-repeat: no-repeat;
+	width: 10vw;
+	height: 20vh;
+	border-radius: 1vw;
+	box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+}
+.button a{
+	color: white;
+	font-size: 1.4vw;
+}
+.button:hover{background-size: 15vw;}
+.buttonPet{background-image: url(img/logos/pet.png);}
+.buttonFood{background-image: url(img/logos/food.png);}
+.buttonHat{background-image: url(img/logos/hat.png);}
+.buttonBackground{background-image: url(img/logos/background.png);}
+footer .options .button:hover{box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.1);}
+
+
+
+section{
+	background-color: rgb(10, 10, 25);
+	width: 70vw;
+	height: 90vh;
+	margin-top: 5vh;
+	margin-bottom: 5vh;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 5vh;
+	order: 1;
+}
+.description{display: none;}
+.description div{
+	display: flex;
+	flex-direction: column;
+
+	max-width: 70vw;
+	width: 70vw;
+	max-height: 90vh;
+
+	overflow-y: scroll;
+	overflow-x: hidden;
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+
+}
+footer .options .button{	margin-bottom: 0.5vh;
+	margin-top: 0.5vh;
+	background-size: contain;
+}
+.description div::-webkit-scrollbar{display: none;}
+.description img{
+	object-fit: contain;
+	max-height: 60vh;
+	margin: 0px;
+}
+.description h1{
+	text-align: center;
+	color: white;
+	font-size: 10vw;
+	margin: 0px;
+}
+.description h2{
+	text-align: center;
+	color: white;
+	font-size: 2.5vw;
+	margin: 0px;
+}

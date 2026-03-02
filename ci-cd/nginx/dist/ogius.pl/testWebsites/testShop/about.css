@@ -1,0 +1,77 @@
+header{
+	background-image: url(img/about_header_back.jpg);
+	background-position: 0% 50%;
+	height: 60vh;
+}
+header .text h1{
+	font-size: 80px;
+	margin-top: 0px;
+}
+
+
+
+section .peoples img{
+	margin-left: 15%;
+	width: 70%;
+	height: 70%;
+	/*margin-left: auto;*/
+	/*margin-right: auto;*/
+}
+section .text h1, section .text h2, section .text h3{
+	font-family: sans-serif;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 60vw;
+}
+section .text h1{
+	margin-top: 5vh;
+	font-size: 40px;
+}
+section .text h3{
+	text-decoration: all;
+	margin-bottom: 10px;
+}
+section .text h2{
+	margin-bottom: 10vh;
+}
+section .team .text h1{
+	margin-bottom: 10vh;
+	margin-bottom: 3vh;
+	font-size: 40px;
+}
+section .team .text h2{
+	font-size: 20px;
+	margin-bottom: 5vh;
+}
+section .team .text h1, section .team .text h2{
+	text-align: center;
+	max-width: 30vw;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: sans-serif;
+}
+section .peoples{
+	width: 100vw;
+	display: flex;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+
+	grid-template-columns: repeat(4, minmax(50px, 300px));
+	grid-template-rows: repeat(2, minmax(50px, 300px));
+	grid-auto-flow: row;
+	grid-gap: 30px;
+	margin-bottom: 100px;
+}
+section .peoples h1, section .peoples h2{
+	margin-top: 10px;
+	margin-left: 15%;
+	font-family: serif;
+}
+section .peoples h1{
+	font-size: 30px;
+}
+section .peoples h2{
+	font-size: 20px;
+	color: gray;
+}

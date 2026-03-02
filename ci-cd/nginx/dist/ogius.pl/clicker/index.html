@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css.css">
+    <link class="title" rel="shortcut icon" href="img/logo.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>clicker</title>
+</head>
+<body>
+	<header>
+		<div class="meters">
+			<div class="clock" id="clock">czas: 0s</div>
+			<div class="cash" id="cash">pieniądze: 0</div>
+			<div class="clicks" id="clicks">kliknięcia: 0</div>
+		</div>
+		<div class="hideUpgrades">
+			<button onclick="hideShop()" onshow="hideShop()">shop</button>
+			<div class="upgrades">
+				<div class="pressUpgrade">
+					<div onclick="changeProfit(1,25,this,'cOne')">but<br>+1 -25</div>
+					<div onclick="changeProfit(5,500,this,'cTwo')">bułka<br>+5 -500</div>
+					<div onclick="changeProfit(6,600,this,'cThree')">kanapka<br>+6 -600</div>
+					<div onclick="changeProfit(10,1000,this,'cFour')">deska<br>+10 -1000</div>
+					<div onclick="changeProfit(15,2000,this,'cFive')">masło<br>+15 -2000</div>
+					<div onclick="changeProfit(20, 3000,this,'cSix')">samolot<br>+20 -3000</div>
+				</div>
+				<div class="timeUpgrade">
+					<div onclick="changeProfit(0.5,50,this,'tOne')">zegar<br>+0.5 -50</div>
+					<div onclick="changeProfit(2,300,this,'tTwo')">zegarek<br>+2 -300</div>
+					<div onclick="changeProfit(7,1000,this,'tThree')">dziecko<br>+7 -1000</div>
+					<div onclick="changeProfit(10,2000,this,'tFour')">guzik<br>+10 -2000</div>
+					<div onclick="changeProfit(15,3000,this,'tFive')">stoper<br>+15 -3000</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<section>
+		
+		<button onclick="count()"></button>
+	</section>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="js.js"></script>
+</body>
+</html>

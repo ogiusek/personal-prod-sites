@@ -1,0 +1,101 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	min-height: 101vh;
+}
+header{
+	box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+	background-repeat: no-repeat;
+	background-size: cover;
+	/*height: 100vh;*/
+
+	color: white;
+	margin-bottom: 50px;
+}
+header a{
+	font-family: sans-serif;
+	text-decoration: none;
+	color: white;
+	padding: 50px;
+	font-size: 30px;
+
+	transition: 0.5s;
+}
+header a:hover{
+	transition: 0.5s;
+	color: yellow;
+}
+.logo{
+	margin-right: auto;
+	padding: 50px;
+	width: 150px;
+}
+nav{
+	display: flex;
+	justify-content: right;
+	flex-direction: row;
+	text-align: right;
+}
+header .text{
+	margin-top: 15vh;
+
+	max-width: 50vw;
+	margin-left: auto;
+	margin-right: auto;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+}
+header .text h1{
+	font-size: 100px;
+	margin-bottom: 30px;
+}
+header .text h2{
+	font-size: 30px;
+}
+header .text a{
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+
+	background-color: orange;
+}
+header .text a:hover{
+	background-color: darkorange;
+}
+
+
+
+
+footer{
+	background-color: black;
+	height: 300px;
+	color: white;
+	text-align: center;
+}
+footer h1{
+	padding: 35px;
+	/*margin-top: 50px;*/
+	font-size: 50px;
+}
+footer h2{
+	font-size: 30px;
+}
+.icons{
+	color: white;
+	font-size: 50px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 25px;
+
+	transition: 1s;
+}
+.icons:hover{
+	transition: 1s;
+	color: orange;
+}

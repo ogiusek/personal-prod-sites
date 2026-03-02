@@ -1,0 +1,25 @@
+body {
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#score {
+    position: fixed;
+    left: 5vw;
+    top: 5vh;
+    font-size: 3vw;
+    color: white;
+}
+
+#canvas {
+    width: calc(100vw);
+    height: calc(100vh);
+    margin: 0px;
+    /* background-color: lightskyblue; */
+    background-image: url('img/back.png');
+    background-size: auto 100vh;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="anlast.png" alt="logo" class="logo" />
+    <nav>
+      <ul class="nav_l">
+        <li><a href="quiz.html">QUIZY</a></li>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="scoreboard.html">UPDATE</a></li>
+      </ul>
+    </nav>
+    <a class="cta" href="bugfix.html"><button>Feedback</button></a>
+  </header>
+  <div class="title-bf"><h1>Submit Feedback</h1></div>
+  <div class="forme">
+    <form action="https://formsubmit.co/maciusk12@gmail.com" method="POST">
+      <input
+        class="bugfix"
+        class="emailform"
+        type="email"
+        name="email"
+        placeholder="Email Address"
+      />
+      <input
+        class="bugfix"
+        class="emailform"
+        placeholder="Write Text"
+        type="text"
+        name="name"
+        required
+      />
+      <input
+        class="bugfix"
+        type="hidden"
+        name="_next"
+        value="https://maciek.simplecreator.pl/thanks.html"
+      />
+      <!-- <input type="email" name="email" required /> -->
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</body>
