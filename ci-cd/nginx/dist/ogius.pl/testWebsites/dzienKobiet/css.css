@@ -1,0 +1,28 @@
+body{
+	background-image: url(materials/background.jpg);
+	background-size: 100vw;
+	height: 100vh;
+	margin: 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+h1{
+	color: white;
+	text-align: center;
+	width: 500px;
+	font-size: 50px;
+}
+.heart{
+	color: red;
+}
+.text{
+	background-color: black;
+}
+h2{
+	color: white;
+	text-align: center;
+	width: 500px;
+	font-size: 30px;
+}

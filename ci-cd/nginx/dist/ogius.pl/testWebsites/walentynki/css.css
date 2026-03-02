@@ -1,0 +1,28 @@
+body{
+	background-image: url(img/background.gif);
+	margin: 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+button{
+	width: 100%;
+	padding-left: 3vw;
+	padding-right: 3vw;
+	/*minwidth: 10vw;*/
+	height: 10vh;
+	font-size: 3vw;
+}
+button.hover{box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 1);}
+video{width: 100%;}
+div{
+	box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+	/*text-align: center;*/
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+h1{color: white; text-align: center; font-size: 2.5vw;}

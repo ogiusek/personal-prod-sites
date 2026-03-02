@@ -1,0 +1,78 @@
+.rozszerzeniaLink{
+	text-decoration: underline;
+	font-size: 1.5vw;
+	color: wheat;
+	display: flex;
+	justify-content: left;
+	text-align: left;
+	font-weight: normal;
+	margin-left: 0vw;
+	margin-right: 0vw;
+}
+.r{
+	justify-content: right;
+	text-align: right;
+	color: orangered;
+}
+.l{
+	justify-content: left;
+	text-align: left;
+	color: gold;
+}
+.rozszerzenia{
+	display: none;
+}
+.rozszerzenia.open{
+	display: block;
+	display: flex;
+	display: grid;
+	grid-template-rows: 3vw 1fr;
+	grid-template-columns: 1fr 1fr;
+}
+.down{
+	display: block;
+}
+.down.open{
+	display: none;
+}
+.up{
+	grid-column: span 2;
+}
+.hideRozszerzenia{
+	
+	margin-left: 5vw;
+	margin-right: 5vw;
+
+	border: solid;
+	border-width: 1px;
+	border-color: rgba(50, 50, 60, 1.0);
+
+	background-color: rgba(5, 5, 10, 1.0);
+
+	flex-direction: row;
+}
+.openRozszerzenia{
+	font-size: 3vw;
+}
+.hideRozszerzenia h2{
+	font-size: 1.5vw;
+}
+.hideRozszerzenia .trailer{
+	margin-top: 0px;
+	width: 20vw;
+	/*height: 10vw;*/
+	margin-left: auto;
+	margin-right: auto;
+}
+.royalty h2{
+	text-align: left;
+	justify-content: left;
+	max-width: 20vw;
+	margin-left: 2.5vw;
+}
+.ideology h2{
+	text-align: right;
+	justify-content: right;
+	max-width: 20vw;
+	margin-right: 2.5vw;
+}

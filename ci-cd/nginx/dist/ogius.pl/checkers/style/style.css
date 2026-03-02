@@ -1,0 +1,25 @@
+body {
+  overflow-x: hidden;
+  margin: 0;
+  font-size: 16px;
+
+  --light-tile-color: #ffb;
+  --dark-tile-color: #330;
+  --light-cheker-color: #fff;
+  --dark-cheker-color: #000;
+  --selected-color: #ccf;
+
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #000;
+}
+
+#turn {
+  text-transform: capitalize;
+  color: white;
+  font-size: 2rem;
+}

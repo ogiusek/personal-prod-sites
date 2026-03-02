@@ -1,0 +1,27 @@
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tile {
+  width: 5rem;
+  max-width: calc(100vw / 8);
+  max-height: calc(100vw / 8);
+  aspect-ratio: 1/1 !important;
+
+  position: relative;
+  background-color: var(--light-tile-color);
+}
+
+.tile.even {
+  background-color: var(--dark-tile-color);
+}

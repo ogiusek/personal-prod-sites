@@ -1,0 +1,79 @@
+body{display: flex; margin: 0px; background-color: rgb(0, 0, 32);}
+header{width: 40vw; background-color: rgb(0, 0, 0);}
+.meters{
+	/*background-color: rgb(0, 0, 50);*/
+	display: flex; 
+	justify-content: space-evenly;
+	width: 40vw;
+}
+.meters div{
+	color: rgb(0, 0, 32);
+	background-color: rgb(255, 174, 66);
+	width: 30%;
+	height: 10vh;
+	border-radius: 10vh;
+
+	font-size: 2vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border: solid;
+	border-color: white;
+	border-width: 0.3vh;
+	margin-bottom: 5vh;
+}
+.meters div:hover{background-color: rgb(255, 190, 75);}
+.upgrades{
+	color: white;
+	display: flex;
+	justify-content: space-evenly;
+}
+header button{
+	width: 15vw;
+	font-size: 3vh;
+	border-radius: 7.5vw;
+	background-color: rgb(255, 131, 0);
+	text-align: center;
+	border: solid;
+	border-width: 0.1vw;
+}
+.upgrades div div{
+	width: 15vw;
+	font-size: 3vh;
+	border-radius: 7.5vw;
+	background-color: rgb(255, 131, 0);
+	text-align: center;
+	border: solid;
+	border-width: 0.1vw;
+	/*border-color: black;*/
+}
+section{width: 60vw;}
+section button{
+	width: 60vw;
+	height: 100vh;
+	border: solid;
+	border-width: 1vw;
+	background-color: rgb(255, 0, 0);
+	border-radius: 100vh;
+}
+.upgrades div div:hover,
+.upgrades div div.bought{background-color: rgb(255, 200, 100);}
+button:hover{background-color: rgb(255, 100, 100);}
+@media all and (max-width: 100vh){
+	.hideUpgrades{width: 100vw; text-align: center;}
+	body{flex-direction: column;}
+	header,.meters{width: 100vw;}
+	section{width: 100vw;}
+	section button{
+		width: 100vw;
+		height: 80vh;
+	}
+	.upgrades{display: none;}
+	.upgrades.hide{
+		display: flex;
+		justify-content: space-evenly;
+	}
+	section button.hide{position: fixed;}
+}
+@media all and (min-width: 100vh){header button{display: none}}

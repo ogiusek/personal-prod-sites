@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>quiz</title>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <link class="title" rel="shortcut icon" href="img/logo.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<header>
+		<h1>Quiz</h1>
+	</header>
+	<section>
+		<h1 id="topQuestionNumber">Pytanie nr  .questionNumber</h1>
+		<h1 id="question">pytanie</h1>
+		<ul>
+			<li class="fiOption" id="firstOption" onclick="check(0)">firstOption</li>
+			<li class="seOption" id="secondOption" onclick="check(1)">secondOption</li>
+			<li class="thOption" id="thirdOption" onclick="check(2)">thirdOption</li>
+			<li class="foOption" id="fourthOption" onclick="check(3)">fourthOption</li>
+		</ul>
+	</section>
+	<footer>
+		<ul>
+			<li id="clock">czas: 0s</li>
+			<li id="questionNumber">Pytanie: </li>
+			<li id="timeOnQuestion">Czas na pytanie: </li>
+			<li id="allGoodAnswers">Poprawne odpowiedzi: </li>
+			<li id="allBadAnswers">Złe odpowiedzi: </li>
+		</ul>
+	</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="js.js"></script>
+</body>
+</html>

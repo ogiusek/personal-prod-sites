@@ -1,0 +1,32 @@
+img{
+	width: 50vw;
+	margin-left: 5vw;
+	margin-right: 5vw;
+}
+h1{
+	color: gold;
+	background-repeat: no-repeat;
+	background-size: 50vw;
+	background-attachment: fixed;
+	background-position: 25vw;
+}
+.imperium{
+	background-image: url(https://cdn.fanbyte.com/wp-content/uploads/2020/03/Rimworld-Royalty-Throne-Room.jpg?x72619);
+}
+.honor{
+	background-image: url(https://rimworldwiki.com/images/b/b9/Royal_Favor.png);
+	background-size: 10vw;
+	background-position: 45vw;
+}
+.organy{
+	background-size: 10vw;
+
+	background-position: 45vw;
+	background-image: url(https://rimworldwiki.com/images/5/52/Health_item_natural.png);
+}
+.ideology{
+	color: orangered;
+}
+.content{
+	
+}

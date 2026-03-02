@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Wieża Hanoi</title>
+</head>
+<body>
+	<header onclick="Ai(5, 2)">automatycznie</header>
+	<section>
+		<div class="oneStick stick">
+			<div class="one"></div>
+			<div class="two"></div>
+			<div class="three"></div>
+			<div class="four"></div>
+			<div class="five"></div>
+		</div>
+		<div class="twoStick stick">
+			<div class="one"></div>
+			<div class="two"></div>
+			<div class="three"></div>
+			<div class="four"></div>
+			<div class="five"></div>
+		</div>
+		<div class="threeStick stick">
+			<div class="one"></div>
+			<div class="two"></div>
+			<div class="three"></div>
+			<div class="four"></div>
+			<div class="five"></div>
+		</div>
+	</section>
+	<footer>
+			<button onclick="GetReplaceValue(0)" class="oneB"></button>
+			<button onclick="GetReplaceValue(1)" class="twoB"></button>
+			<button onclick="GetReplaceValue(2)" class="threeB"></button>
+	</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="js.js"></script>
+</body>
+</html>

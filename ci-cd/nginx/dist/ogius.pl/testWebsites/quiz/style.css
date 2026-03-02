@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #24252a; 
+    font-family: "Montserrat", sans-serif;
+
+}
+body{
+    overflow: hidden;
+    width: 100vw;
+    min-height: 100vh;
+    /* background-color: #cfe2e2; */
+}
+.logo{
+    height: 10%;
+    width: 10%;
+    cursor: pointer;
+}
+a, li, button{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #24252a; 
+
+}
+.nav_l{
+    list-style: none;
+}
+.nav_l li {
+    padding: 0px 20px;
+    display: inline-block;
+}
+.nav_l li a {
+    transition:  all 0.3 ease 0s;
+}
+.nav_l li a:hover{
+    color: #0088e9;
+}
+button{
+    cursor: pointer;
+    padding: 9px 25px;
+    width: 100%;
+    background-color: rgba(0, 135, 169, 0.8);
+    border-radius: 50px;
+    transition:  all 0.3 ease 0s;
+}
+button:hover{
+    background-color: rgba(0, 135, 169, 0.1);
+    transition: 0.5s;
+
+}
+.gallery h1{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 44px;
+    color: #edf0f1;
+    position: absolute;
+    left: 280px;
+    top: 90px;
+}
+.h1-ty{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 44px;
+    color: #edf0f1;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    margin-top: 15vh;
+}
+.h2-ty{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+
+}
+.Imgboxlist{
+    display: flex; 
+    flex-direction: row;
+}
+.img-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    color: black;
+    background-color: #fff;
+      margin-left: auto; 
+     margin-right: auto; 
+     width: max-content; 
+    
+}
+.img{
+    transform: scale(1.1);
+}
+.img:hover {
+    animation: img-move .8s forwards;
+}
+.img-box{
+    --bre: '';
+    background-color: gray;
+}
+.img-box::before{
+    content: var(--bre);
+    position: absolute;
+    bottom: 2%;
+}
+@keyframes img-move{
+    0%  {
+        transform: scale(1.1) translateY(0);
+        
+    }
+    50%{
+        transform: scale(1) translateY(0);
+    }
+    100%{
+        transform: scale(1) translateY(-10%);
+    }
+}
+
+.Quizz{
+    border: 0px;
+    text-decoration: underline;
+    text-decoration-color: #0088e9;
+}
+.home{
+    border: 0px;
+    text-decoration: underline;
+    text-decoration-color: #0088e9;
+}
+.iconMath{
+    height: 80px;
+    width: 160px;
+    /* position: relative; */
+    /* left: 240px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.icons{
+    margin: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-direction: row;
+}
+.imgidk{
+    max-height: 100%;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 5vh;
+    position: fixed;
+    color: gray;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.bugfix {
+    display: flex;
+    margin-bottom: 25px;  
+    text-align: center;  
+    width: 200px;
+    height: 30px;
+    background-color: rgba(39, 35, 35, 0.342);
+    color: white;
+}
+.forme{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+
+}
+.title-bf{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 10vh;
+}
+
+.quizz-mod{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+    padding: 30px;
+    /* background: white; */
+}
+.quizz-box{
+    border-radius: 5px;
+
+}
+.check-button{
+    width: 45%;
+    border-radius: 25px;
+    padding: 4px 15px;
+}
+.close-popup{
+    border-radius: 25px;
+    padding: 4px 15px;  
+}
+.bab{
+    background-color: white;
+}
+.tabelka{
+    width: 100vw;
+    height: dopasuj se;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table {
+    width: 400px;
+}
+td{
+    text-align: center;
+}
+table, th, td {
+    border: 1px solid white;
+    color: white;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+}

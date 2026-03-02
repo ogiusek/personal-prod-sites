@@ -1,0 +1,78 @@
+a{
+	color: black;
+	text-decoration: none;
+}
+body{
+	background-color: rgba(0,0,0,1);
+	color: white;
+	font-size: 1vw;
+}
+.rightAlign{
+	text-align: right
+}
+h2 { 
+	text-align: left;
+	margin-left: 10vw;
+	margin-right: 10vw;
+}
+.center{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+.m500px{
+	max-width: 500px;
+}
+.centerTxt{
+	max-width: 1000px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+/*.cw{
+	color: white;
+}*/
+.active{
+	color: rgba(255, 0, 0, 1);
+}
+.topBarContent{
+	padding-right: 25px;
+	padding-left: 25px;
+	text-decoration: none;
+}
+.topBarContent:hover{
+	color: rgba(255, 0, 0, 1);
+	font-size: 2vw;
+	text-decoration: underline;
+}
+.img{
+	height: 10vw;
+	top: 45vh;
+	bottom: 45vh;
+	z-index: 1;
+	position: fixed;
+}
+.topBar{
+	font-size: 2vw;
+	color: rgba(0, 0, 0, 1.0);
+	position: fixed;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 3vw;
+	z-index: 1;
+	padding: 10px;
+	background-color: rgba(255, 255, 255, 1.0);
+	top: 0;
+	right: 0;
+	left: 0;
+}
+.space{
+	height: 3vw;
+	top: 0;
+	right: 0;
+	left: 0;
+	padding: 10px;
+}

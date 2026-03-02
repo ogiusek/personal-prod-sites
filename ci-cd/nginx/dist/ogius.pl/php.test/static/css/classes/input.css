@@ -1,0 +1,200 @@
+/* input */
+.input {
+  padding: 0.5rem;
+  max-width: 100%;
+  width: 25rem;
+  min-height: 2rem;
+  height: max-content;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input > textarea,
+.input > input,
+.input > a,
+.input > button,
+.input > select {
+  min-height: 2rem;
+  box-sizing: border-box;
+  margin: 0;
+
+  transition: var(--transition);
+  font-size: 1rem;
+  font-weight: 600;
+  
+  border-radius: 5px;
+  height: 100%;
+  border: 1px solid var(--color-btn-primary);
+  background-color: var(--color-btn-primary);
+  color: var(--color-text-primary);
+
+  -webkit-box-shadow: 0px 0px 1rem 0px var(--color-shadow-primary);
+  -moz-box-shadow:    0px 0px 1rem 0px var(--color-shadow-primary);
+  box-shadow:         0px 0px 1rem 0px var(--color-shadow-primary);
+}
+
+.input > label {
+  z-index: 1;
+  font-size: 1rem;
+  height: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-right: auto;
+}
+
+.input > textarea,
+.input > input {
+  width: 100%;
+  padding: 0.5rem;
+  outline-width: 1px;
+  outline-style: solid;
+}
+
+.input > input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.input > input[type='number']::-webkit-outer-spin-button,
+.input > input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input:has(input[type="checkbox"]){
+  flex-direction: row;
+}
+
+.input > input[type="checkbox"]{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+  box-sizing: border-box;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  
+  outline: none;
+  border: none;
+  background-color: var(--color-error);
+}
+.input > input[type="checkbox"]:checked {
+  background-color: var(--color-success);
+}
+
+.input > input[type="color"] {
+  padding: 0;
+  height: 2rem;
+  width: 100%;
+  border: none;
+  overflow: hidden;
+}
+
+.input > input[type="color"]::-webkit-color-swatch,
+.input > input[type="color"]::-moz-color-swatch,
+.input > input[type="color"]::-webkit-color-swatch-wrapper,
+.input > input[type="color"]::-moz-color-swatch-wrapper {
+  border: none;
+  height: 100px;
+  width: 100px;
+}
+
+.input > textarea:valid,
+.input > input:valid {
+  outline-color: var(--color-success);
+}
+.input > textarea:invalid,
+.input > input:invalid {
+  outline-color: var(--color-warning);
+}
+.input > textarea.invalid,
+.input > input.invalid {
+  outline-color: var(--color-error);
+}
+
+.input > textarea{
+  resize: none;
+}
+
+/* button */
+.input > a,
+.input > button {
+  padding: 0 2rem;
+  text-align: center;
+  outline: none;
+  transition: var(--transition);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.input > a:has(img),
+.input > button:has(img) {
+  padding: 0.25rem;
+}
+
+.input > a > img,
+.input > button > img {
+  height: 1rem;
+}
+
+.input > a[data-alt]:hover,
+.input > button[data-alt]:hover{
+  z-index: 2;
+}
+
+.input > a[data-alt]:hover::after,
+.input > button[data-alt]:hover::after {
+  z-index: 2;
+
+  content: attr(data-alt);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(100%);
+
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-primary);
+
+  background-color: var(--color-bg-primary);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  outline: 1px solid var(--color-border-primary);
+}
+
+@media screen and (max-width: 576px) {
+  .input > a,
+  .input > button {
+    padding: 0 1rem;
+  }
+}
+
+.input > a:hover,
+.input > button:hover {
+  filter: brightness(1.1);
+}
+
+form:invalid .input > button[type="submit"] {
+  outline: 1px solid var(--color-warning);
+}
+form:valid .input > button[type="submit"] {
+  outline: 1px solid var(--color-success);
+}
+
+/* select */
+.input > select {
+  outline: 1px solid var(--color-success);
+  padding: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}

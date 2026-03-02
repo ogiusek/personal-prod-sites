@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    
+}
+a, li{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+.nav_l{
+    list-style: none;
+}
+.nav_l li {
+    padding: 0px 20px;
+    display: inline-block;
+}
+.nav_l li a {
+    transition:  all 0.3 ease 0s;
+}
+.nav_l li a:hover{
+    color: #0088e9;
+}
+.logo{
+    /* height: 10%; */
+    width: 10%;
+    cursor: pointer;
+    
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #24252a; 
+}
+.quizz-mod{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* height: 70vh; */
+    padding: 0px;
+    width: 40vw;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #a3c2c2;
+    box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+    border-radius: 5px;
+    text-align: center;
+
+}
+.bab{
+    background-color: #cfe2e2; 
+}
+body{
+    background-color: #cfe2e2;
+}
+h1{
+    margin-top: 0px; 
+    margin-bottom: 20px;
+    font-weight: 300;
+    font-size: 28px;
+    font-family: "Montserrat", sans-serif;
+}
+h3{
+    font-family: "Montserrat", sans-serif;
+}
+.ansbox{
+    padding: 10px 20px;
+}
+.ansbox:nth-child(even){
+    background-color: #d9e8e8;
+    border-radius: 5px;
+}
+h3.question{
+    font-size: 23px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.answer{
+    cursor: pointer;
+}
+label{
+    padding-right: 10px; font-size: 16px;cursor: pointer;
+}
+label:last-child{
+    padding: 0;
+}
+button{
+    display: block;
+    margin: 10px auto 0;
+    padding: 10px 4px;
+    text-transform: uppercase;
+    transition: background-color #d9e8e8 1.3s;
+    border: 1px black;
+    cursor: pointer;
+    border-radius: 5px;
+    
+}
+button:hover{
+    
+    background-color: #6b8686
+}
+.popup{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    padding: 20px; width: 70vh; height: 30vh;
+    background-color: #5881a5;
+    border-radius: 5px;
+    border: 2px solid #000;
+}
+.popup-active{
+    display: flex;
+}
+.close-popup{   
+    position: absolute;
+    top: 0px;
+    right: 20px;
+}
+.correct{
+
+    color: forestgreen;
+}
+.incorrect{
+    color: red;
+}

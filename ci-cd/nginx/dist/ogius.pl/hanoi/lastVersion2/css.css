@@ -1,0 +1,84 @@
+body{
+	margin: 0px;
+	display: flex;
+	flex-direction: column;
+}
+.one{
+	width: 10vw;
+	background-color: orange;
+}
+.two{
+	width: 15vw;
+	background-color: yellow;
+}
+.three{
+	width: 20vw;
+	background-color: green;
+}
+.four{
+	width: 25vw;
+	background-color: blue;
+}
+.five{
+	width: 30vw;
+	background-color: red;
+}
+.stick div{
+	height: 10%;
+	border-radius: 15vw;
+}
+.stick{
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	align-items: center;
+	width: 30vw;
+	height: 80vh;
+	margin: 0px;
+}
+button{
+	height: 20vh;
+	width: 30vw;
+	margin: 0px;
+	background-color: brown;
+}
+button.pressed{
+	background-color: green;
+}
+footer{
+	width: 100vw;
+	height: 20vh;
+	margin: 0px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+section{
+	display: flex;
+	flex-direction: row;
+	width: 100vw;
+	height: 80vh;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0px;
+}
+header{
+	position: fixed;
+	border: solid;
+	border-color: black;
+	border-width: 1px;
+	width: 10vw;
+	height: 10vh;
+	background-color: darkgreen;
+	top: 5vh;
+	left: 5vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: lightgray;
+	transition: 1s;
+}
+header:hover{
+	background-color: green;
+}

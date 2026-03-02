@@ -1,0 +1,19 @@
+.text{
+	width: 500px;
+	height: 500px;
+	text-align: left;
+	justify-content: left;
+}
+.title{
+	width: 500px;
+	text-align: center;
+}
+
+.email{
+	width: 500px;
+	text-align: center;
+}
+.sumbit{
+	width: 500px;
+	text-align: center;
+}

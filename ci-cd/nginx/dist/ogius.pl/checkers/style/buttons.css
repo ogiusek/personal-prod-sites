@@ -1,0 +1,26 @@
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.buttons * {
+  transition: 1s;
+}
+
+.buttons button {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  filter: invert(100%);
+}
+
+.restart:hover {
+  rotate: 360deg;
+  scale: 1.5;
+}
+
+.buttons img {
+  max-width: 2rem;
+}

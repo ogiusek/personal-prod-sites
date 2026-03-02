@@ -1,0 +1,9 @@
+AddHandler application/x-httpd-php83 php
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /index.php [L]
+
+RewriteCond %{REQUEST_URI} !^/static
+RewriteRule ^(.*)$ /index.php [L]
