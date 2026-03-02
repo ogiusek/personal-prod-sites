@@ -5,7 +5,6 @@ pipeline {
         stage('Debug') {
             steps {
                 echo 'Hello! The pipeline is running successfully.'
-                sh 'printenv' // Optional: This logs all environment variables
             }
         }
     }
