@@ -1,0 +1,20 @@
+services:
+  jenkins:
+    build:
+      context: jenkins
+      network: host
+    image: jenkins
+    container_name: jenkins_server
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - ./jenkins/home:/var/jenkins_home
+
+  nginx:
+    build:
+      context: nginx
+      network: none
+    image: prod_nginx
+    container_name: prod_nginx_server
+    network_mode: host
+    restart: unless-stopped
