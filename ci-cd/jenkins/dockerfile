@@ -38,7 +38,8 @@ RUN curl -L -o /usr/share/jenkins.war http://updates.jenkins-ci.org/download/war
 ENV JENKINS_HOME /var/jenkins_home
 RUN mkdir -p $JENKINS_HOME && useradd -d "$JENKINS_HOME" -u 1000 -m -s /bin/bash jenkins
 
-EXPOSE 8080 50000
+EXPOSE 8080 9191
+
 USER jenkins
 
 # Run Jenkins directly via Java
