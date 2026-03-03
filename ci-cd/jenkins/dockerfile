@@ -1,22 +1,45 @@
 # FROM jenkins/jenkins:lts-jdk21
-FROM jenkins/jenkins:lts
+# FROM jenkins/jenkins:lts
+#
+# USER root
+#
+# ENV JENKINS_HOME=/var/jenkins_home
+#
+# RUN mkdir -p $JENKINS_HOME && chown -R jenkins:jenkins $JENKINS_HOME
+#
+# RUN apt-get update && \
+#     apt-get install -y lsb-release python3-pip ca-certificates curl gnupg && \
+#     curl -fsSL https://download.docker.com/linux/debian/gpg | \
+#         gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
+#     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] \
+#         https://download.docker.com/linux/debian $(lsb_release -cs) stable" \
+#         > /etc/apt/sources.list.d/docker.list && \
+#     apt-get update && \
+#     apt-get install -y docker-ce-cli
+#
+# USER jenkins
+#
+# RUN jenkins-plugin-cli --plugins "blueocean docker-workflow git"
 
-USER root
+FROM debian:bookworm-slim
 
-ENV JENKINS_HOME=/var/jenkins_home
+# Install OpenJDK (Jenkins is a Java app)
+RUN apt-get update && apt-get install -y \
+    openjdk-17-jre \
+    curl \
+    gnupg \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p $JENKINS_HOME && chown -R jenkins:jenkins $JENKINS_HOME
+# Download the Jenkins WAR file directly
+ARG JENKINS_VERSION=2.440.2
+RUN curl -L -o /usr/share/jenkins.war http://updates.jenkins-ci.org/download/war/${JENKINS_VERSION}/jenkins.war
 
-RUN apt-get update && \
-    apt-get install -y lsb-release python3-pip ca-certificates curl gnupg && \
-    curl -fsSL https://download.docker.com/linux/debian/gpg | \
-        gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] \
-        https://download.docker.com/linux/debian $(lsb_release -cs) stable" \
-        > /etc/apt/sources.list.d/docker.list && \
-    apt-get update && \
-    apt-get install -y docker-ce-cli
+# Set up the Jenkins user and home directory
+ENV JENKINS_HOME /var/jenkins_home
+RUN mkdir -p $JENKINS_HOME && useradd -d "$JENKINS_HOME" -u 1000 -m -s /bin/bash jenkins
 
+EXPOSE 8080 50000
 USER jenkins
 
-RUN jenkins-plugin-cli --plugins "blueocean docker-workflow git"
+# Run Jenkins directly via Java
+ENTRYPOINT ["java", "-jar", "/usr/share/jenkins.war"]
