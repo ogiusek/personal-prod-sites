@@ -6,15 +6,18 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     && rm -rf /var/lib/apt/lists/*
 
-ARG JENKINS_VERSION=2.541.2
+# Download the Jenkins WAR file directly
+# Note: Ensure you are using a Jenkins version that supports Java 21 (2.426.1+ recommended)
+ARG JENKINS_VERSION=2.440.2
 RUN curl -L -o /usr/share/jenkins.war http://updates.jenkins-ci.org/download/war/${JENKINS_VERSION}/jenkins.war
 
+# Set up the Jenkins user and home directory
 ENV JENKINS_HOME /var/jenkins_home
 RUN mkdir -p $JENKINS_HOME && useradd -d "$JENKINS_HOME" -u 1000 -m -s /bin/bash jenkins
 
+# Change ownership of the home directory to the jenkins user
 RUN chown -R jenkins:jenkins $JENKINS_HOME
 
 USER jenkins
-WORKDIR $JENKINS_HOME
 
 ENTRYPOINT ["java", "-jar", "/usr/share/jenkins.war"]
