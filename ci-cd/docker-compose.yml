@@ -14,7 +14,7 @@ services:
   nginx:
     build:
       context: nginx
-      network: none
+      network: host
     container_name: prod_nginx_server
     network_mode: host
     restart: unless-stopped

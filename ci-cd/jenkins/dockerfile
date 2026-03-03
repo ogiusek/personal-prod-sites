@@ -23,7 +23,6 @@
 
 FROM debian:bookworm-slim
 
-# Install OpenJDK (Jenkins is a Java app)
 RUN apt-get update && apt-get install -y \
     openjdk-17-jre \
     curl \
@@ -40,5 +39,4 @@ RUN mkdir -p $JENKINS_HOME && useradd -d "$JENKINS_HOME" -u 1000 -m -s /bin/bash
 
 USER jenkins
 
-# Run Jenkins directly via Java
 ENTRYPOINT ["java", "-jar", "/usr/share/jenkins.war"]
