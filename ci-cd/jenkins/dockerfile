@@ -1,11 +1,11 @@
 # FROM jenkins/jenkins:lts-jdk21
-FROM --platform=linux/amd64 jenkins/jenkins:lts
+FROM jenkins/jenkins:lts
 
 USER root
 
 ENV JENKINS_HOME=/var/jenkins_home
 
-# RUN mkdir -p $JENKINS_HOME && chown -R jenkins:jenkins $JENKINS_HOME
+RUN mkdir -p $JENKINS_HOME && chown -R jenkins:jenkins $JENKINS_HOME
 
 RUN apt-get update && apt-get install -y lsb-release python3-pip ca-certificates curl gnupg && \
     curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
