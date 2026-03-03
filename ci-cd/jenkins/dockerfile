@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:lts-jdk21
 
 USER root
 
@@ -11,6 +11,6 @@ RUN apt-get update && apt-get install -y lsb-release python3-pip ca-certificates
     apt-get update && \
     apt-get install -y docker-ce-cli
 
-USER jenkins
+# USER jenkins
 
 RUN jenkins-plugin-cli --plugins "blueocean docker-workflow git"
