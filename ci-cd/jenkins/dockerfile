@@ -1,57 +1,17 @@
-# FROM jenkins/jenkins:lts-jdk21
-#
-# USER root
-#
-# RUN mkdir -p /var/jenkins_home && chown -R jenkins:jenkins /var/jenkins_home
-# ENV JENKINS_HOME=/var/jenkins_home
-#
-# RUN apt-get update && apt-get install -y lsb-release python3-pip ca-certificates curl gnupg && \
-#     curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
-#     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list && \
-#     apt-get update && \
-#     apt-get install -y docker-ce-cli
-#
-# # USER jenkins
-#
-# RUN jenkins-plugin-cli --plugins "blueocean docker-workflow git"
-FROM debian:bookworm-slim
+FROM jenkins/jenkins:lts-jdk21
 
 USER root
 
 ENV JENKINS_HOME=/var/jenkins_home
 
-RUN apt-get update && apt-get install -y \
-    curl gnupg lsb-release python3-pip ca-certificates git && \
-    # Add backports for OpenJDK 21
-    echo "deb http://deb.debian.org/debian bookworm-backports main" > /etc/apt/sources.list.d/backports.list && \
-    apt-get update && \
-    apt-get install -t bookworm-backports -y openjdk-21-jre && \
-    rm -rf /var/lib/apt/lists/* && \
+RUN mkdir -p $JENKINS_HOME && chown -R jenkins:jenkins $JENKINS_HOME
 
-    curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | gpg --dearmor -o /usr/share/keyrings/jenkins-keyring.gpg && \
-    echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.gpg] https://pkg.jenkins.io/debian-stable binary/" > /etc/apt/sources.list.d/jenkins.list && \
-    apt-get update && apt-get install -y jenkins && \
-
+RUN apt-get update && apt-get install -y lsb-release python3-pip ca-certificates curl gnupg && \
     curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list && \
-    apt-get update && apt-get install -y docker-ce-cli && \
+    apt-get update && \
+    apt-get install -y docker-ce-cli
 
-    mkdir -p $JENKINS_HOME && chown -R jenkins:jenkins $JENKINS_HOME
+# USER jenkins
 
-# RUN apt-get update && apt-get install -y \
-#     openjdk-21-jre curl gnupg lsb-release python3-pip ca-certificates git && \
-#     rm -rf /var/lib/apt/lists/* && \
-#
-#     curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | gpg --dearmor -o /usr/share/keyrings/jenkins-keyring.gpg && \
-#     echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.gpg] https://pkg.jenkins.io/debian-stable binary/" > /etc/apt/sources.list.d/jenkins.list && \
-#     apt-get update && apt-get install -y jenkins && \
-#
-#     curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
-#     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list && \
-#     apt-get update && apt-get install -y docker-ce-cli && \
-#
-#     mkdir -p $JENKINS_HOME && chown -R jenkins:jenkins $JENKINS_HOME
-
-VOLUME /var/jenkins_home
-
-ENTRYPOINT ["/usr/bin/java", "-jar", "/usr/share/java/jenkins.war"]
+RUN jenkins-plugin-cli --plugins "blueocean docker-workflow git"
