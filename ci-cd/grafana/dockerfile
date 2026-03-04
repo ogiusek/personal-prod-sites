@@ -1,0 +1,10 @@
+FROM grafana/grafana-enterprise:latest
+
+USER root
+
+RUN grafana-cli plugins install grafana-piechart-panel
+RUN grafana-cli plugins install vertamedia-clickhouse-datasource
+
+EXPOSE 3000
+
+USER grafana

@@ -6,3 +6,11 @@ services:
     container_name: prod_nginx_server
     network_mode: host
     restart: unless-stopped
+  grafana:
+    build:
+      context: grafana
+      network: host
+    container_name: prod_grafana_server
+    ports:
+      - "8079:3000"
+    restart: unless-stopped
