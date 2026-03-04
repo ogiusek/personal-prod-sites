@@ -1,38 +1,40 @@
 pipeline {
-    agent any
+	agent { any }
 
-    stages {
-        stage('Debug') {
-            steps {
-                echo 'Stage Debug runned!'
-            }
-        }
-        stage('Other') {
-            steps {
-                echo 'Stage Other runned!'
-            }
-        }
-        stage('Deploy') {
-            when { branch '*/prod' }
-            steps {
-                dir('/personal-prod-sites') {
-                    sh 'docker compose up -d --build --remove-orphans'
-                }
-            }
-        }
-    }
+	stages {
+		stage('Debug') {
+			steps {
+				echo 'Stage Debug runned!'
+			}
+		}
+		stage('Other') {
+			steps {
+				echo 'Stage Other runned!'
+			}
+		}
+		stage('Deploy') {
+			when {
+				expression { return env.BRANCH_NAME == 'prod' || env.BRANCH_NAME == 'origin/prod' }
+			}
+			steps {
+				dir('/personal-prod-sites') {
+					sh 'docker compose up -d --build --remove-orphans'
+				}
+			}
+		}
+	}
 
-    post {
-        always {
-            echo 'Cleanup'
-        }
-        success {
-            echo 'Success'
-        }
-        failure {
-            echo 'Failure'
-        }
-    }
+	post {
+		always {
+			echo 'Cleanup'
+		}
+		success {
+			echo 'Success'
+		}
+		failure {
+			echo 'Failure'
+		}
+	}
 }
 // pipeline {
 //     agent {}
