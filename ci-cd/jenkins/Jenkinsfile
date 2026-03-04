@@ -5,35 +5,37 @@ pipeline {
 		}
 	}
 	environment {
+		REPO_URL = 'https://github.com/ogiusek/personal-prod-sites.git';
 		SSH_CRED_ID = "836d01e5-f47e-4801-a5e2-c274f8c511f0"
 	}
 
 	stages {
-		stage('Debug') {
+		stage('Sync Repo') {
 			steps {
-				echo 'Stage Debug runned!'
+				// git "${REPO_URL}"
+// ci-cd/jenkins/scripts/hello.sh
+				checkout scm
+				// checkout scm:[
+				// 	$ class :'GitSCM',
+				// 	        branches :[[name :'*/main']],
+				// 	        userRemoteConfigs :[[url :env.REPO_URL, credentialsId :env.SSH_CRED_ID]]
+				// ]
 			}
 		}
-		stage('Logging') {
+		stage ('Logging') {
 			steps {
 				script {
 					echo "Current branch is: ${env.GIT_BRANCH}"
+					sh "bash ${WORKSPACE}/ci-cd/jenkins/scripts/hello.sh"
 				}
 			}
 		}
-		stage('Deploy') {
+		stage ('Deploy') {
 			when {
-				expression { return env.GIT_BRANCH.contains('prod') }
+				expression { return env.GIT_BRANCH.contains ('prod') }
 			}
 			steps {
-				dir('/personal-prod-sites/ci-cd') {
-					withCredentials([usernamePassword(credentialsId: "${env.SSH_CRED_ID}",
-					                                  usernameVariable: 'GITHUB_APP',
-					                                  passwordVariable: 'GITHUB_ACCESS_TOKEN')]) {
-						sh 'git config --global --add safe.directory /personal-prod-sites'
-						sh 'git checkout ${GIT_BRANCH}'
-						sh 'git pull origin ${GIT_BRANCH}'
-					}
+				dir ("${WORKSPACE}/ci-cd") {
 					sh 'docker compose up -d --build --remove-orphans'
 				}
 			}
