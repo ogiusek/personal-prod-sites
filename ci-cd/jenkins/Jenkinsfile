@@ -24,8 +24,8 @@ pipeline {
 			}
 			steps {
 				dir ("ci-cd") {
-					// sh 'bash jenkins/scripts/deploy.sh'
-					sh 'docker compose up -d --build --remove-orphans'
+					sh 'bash jenkins/scripts/deploy.sh'
+					// sh 'docker compose up -d --build --remove-orphans'
 				}
 			}
 		}
