@@ -32,7 +32,7 @@ pipeline {
 					                                  passwordVariable: 'GITHUB_ACCESS_TOKEN')]) {
 						sh 'git config --global --add safe.directory /personal-prod-sites'
 						sh 'git checkout ${GIT_BRANCH}'
-						sh 'git pull'
+						sh 'git pull origin ${GIT_BRANCH}'
 					}
 					sh 'docker compose up -d --build --remove-orphans'
 				}
