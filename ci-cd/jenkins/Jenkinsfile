@@ -4,6 +4,9 @@ pipeline {
 			label '' // An empty label string means "any"
 		}
 	}
+	environment {
+		SSH_CRED_ID = "836d01e5-f47e-4801-a5e2-c274f8c511f0"
+	}
 
 	stages {
 		stage('Debug') {
@@ -24,9 +27,11 @@ pipeline {
 			}
 			steps {
 				dir('/personal-prod-sites/ci-cd') {
-					sh 'git config --global --add safe.directory /personal-prod-sites'
-					sh 'git checkout ${GIT_BRANCH}'
-					sh 'git pull'
+					sshagent(["${env.SSH_CRED_ID}"]) {
+						sh 'git config --global --add safe.directory /personal-prod-sites'
+						sh 'git checkout ${GIT_BRANCH}'
+						sh 'git pull'
+					}
 					sh 'docker compose up -d --build --remove-orphans'
 				}
 			}
