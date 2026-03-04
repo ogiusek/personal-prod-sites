@@ -12,10 +12,13 @@ pipeline {
 	stages {
 		stage('Sync Repo') {
 			steps {
-				git "${REPO_URL}"
+				// git "${REPO_URL}"
+				checkout scm:[
+					$class :'GitSCM',                                               branches :[[name :'*/main']],                                           userRemoteConfigs :[[url :env.REPO_URL, credentialsId :env.SSH_CRED_ID]]
+				]
 			}
 		}
-		stage('Logging') {
+		stage ('Logging') {
 			steps {
 				script {
 					echo "Current branch is: ${env.GIT_BRANCH}"
@@ -23,12 +26,12 @@ pipeline {
 				}
 			}
 		}
-		stage('Deploy') {
+		stage ('Deploy') {
 			when {
-				expression { return env.GIT_BRANCH.contains('prod') }
+				expression { return env.GIT_BRANCH.contains ('prod') }
 			}
 			steps {
-				dir("${WORKSPACE}/ci-cd") {
+				dir ("${WORKSPACE}/ci-cd") {
 					sh 'docker compose up -d --build --remove-orphans'
 				}
 			}
