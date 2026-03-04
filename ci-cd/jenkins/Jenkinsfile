@@ -11,11 +11,6 @@ pipeline {
 				echo 'Stage Debug runned!'
 			}
 		}
-		stage('Other') {
-			steps {
-				echo 'Stage Other runned!'
-			}
-		}
 		stage('Logging') {
 			steps {
 				script {
@@ -25,11 +20,10 @@ pipeline {
 		}
 		stage('Deploy') {
 			when {
-				environment name:'GIT_BRANCH', value: '*prod'
-				// expression { return env.GIT_BRANCH.toLowerCase()?.contains('prod') }
+				expression { return env.GIT_BRANCH.toLowerCase()?.contains('prod') }
 			}
 			steps {
-				dir('/personal-prod-sites') {
+				dir('/personal-prod-sites/ci-cd') {
 					sh 'docker compose up -d --build --remove-orphans'
 				}
 			}
