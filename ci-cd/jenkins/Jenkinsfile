@@ -19,20 +19,14 @@ pipeline {
 		stage('Logging') {
 			steps {
 				script {
-					// echo "Current branch is: ${env.BRANCH_NAME}"
-					def branch = env.BRANCH_NAME ?: env.GIT_BRANCH ?: 'unknown'
-					             echo "Current branch is: ${branch}"
-					             echo "Current branch is: ${env.BRANCH_NAME}"
-					             echo "Current branch is: ${env.GIT_BRANCH}"
-
-					             // Update the env for later stages to use
-					             env.ACTUAL_BRANCH = branch
+					echo "Current branch is: ${env.GIT_BRANCH}"
 				}
 			}
 		}
 		stage('Deploy') {
 			when {
-				expression { return env.ACTUAL_BRANCH.toLowerCase()?.contains('prod') }
+				environment name:'GIT_BRANCH', value: '*prod'
+				// expression { return env.GIT_BRANCH.toLowerCase()?.contains('prod') }
 			}
 			steps {
 				dir('/personal-prod-sites') {
