@@ -13,7 +13,7 @@ pipeline {
             }
         }
         stage('Deploy') {
-            when { branch 'prod' }
+            when { branch '*/prod' }
             steps {
                 dir('/personal-prod-sites') {
                     sh 'docker compose up -d --build --remove-orphans'
