@@ -12,42 +12,14 @@ pipeline {
 	stages {
 		stage('Sync Repo') {
 			steps {
-				dir('/personal-prod-sites') {
-					withCredentials([usernamePassword(credentialsId: "${env.SSH_CRED_ID}",
-					                                  usernameVariable: 'GITHUB_APP',
-					                                  passwordVariable: 'GITHUB_ACCESS_TOKEN')]) {
-						sh "chmod +x ${WORKSPACE}/ci-cd/jenkins/scripts/sync.sh"
-						sh "${WORKSPACE}/ci-cd/jenkins/scripts/sync.sh"
-
-						// sh '' '
-						//               if [ -d ".git" ]; then
-						//                   echo "Repository exists. Pulling latest changes..."
-						//                   git fetch origin ${GIT_BRANCH}
-						//                   git checkout ${GIT_BRANCH}
-						//                   git pull origin ${GIT_BRANCH}
-						//               else
-						//                   echo "Repository does not exist. Cloning..."
-						//                   # Use the credentials in the clone URL
-						//                   git clone https://${GITHUB_APP}:${GITHUB_ACCESS_TOKEN}@github.com/your-username/your-repo.git .
-						//                   git checkout ${GIT_BRANCH}
-						//               fi
-						//           ' ''
-						// sh 'git config --global --add safe.directory /personal-prod-sites'
-						// sh 'git checkout ${GIT_BRANCH}'
-						// sh 'git pull origin ${GIT_BRANCH}'
-					}
-				}
-			}
-		}
-		stage('Debug') {
-			steps {
-				echo 'Stage Debug runned!'
+				git "${REPO_URL}"
 			}
 		}
 		stage('Logging') {
 			steps {
 				script {
 					echo "Current branch is: ${env.GIT_BRANCH}"
+					sh "${WORKSPACE}/ci/cd/jenkins/scripts/hello.sh"
 				}
 			}
 		}
@@ -56,14 +28,7 @@ pipeline {
 				expression { return env.GIT_BRANCH.contains('prod') }
 			}
 			steps {
-				dir('/personal-prod-sites/ci-cd') {
-					withCredentials([usernamePassword(credentialsId: "${env.SSH_CRED_ID}",
-					                                  usernameVariable: 'GITHUB_APP',
-					                                  passwordVariable: 'GITHUB_ACCESS_TOKEN')]) {
-						sh 'git config --global --add safe.directory /personal-prod-sites'
-						sh 'git checkout ${GIT_BRANCH}'
-						sh 'git pull origin ${GIT_BRANCH}'
-					}
+				dir("${WORKSPACE}/ci-cd") {
 					sh 'docker compose up -d --build --remove-orphans'
 				}
 			}
