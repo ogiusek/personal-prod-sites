@@ -27,11 +27,11 @@ pipeline {
 			}
 			steps {
 				dir('/personal-prod-sites/ci-cd') {
-					withCredentials([githubApp(credentialsId: "${env.SSH_CRED_ID}", variable: 'GITHUB_TOKEN')]) {
-						sh 'git config --global --add safe.directory /personal-prod-sites'
-						sh 'git checkout ${GIT_BRANCH}'
-						sh 'git pull'
-					}
+					// withCredentials([githubApp(credentialsId: "${env.SSH_CRED_ID}", variable: 'GITHUB_TOKEN')]) {
+					sh 'git config --global --add safe.directory /personal-prod-sites'
+					sh 'git checkout ${GIT_BRANCH}'
+					sh 'git pull'
+					// }
 					sh 'docker compose up -d --build --remove-orphans'
 				}
 			}
