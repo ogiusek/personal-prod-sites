@@ -24,6 +24,7 @@ pipeline {
 			}
 			steps {
 				dir('/personal-prod-sites/ci-cd') {
+					sh 'git config --global --add safe.directory /personal-prod-sites/ci-cd'
 					sh 'git checkout ${GIT_BRANCH}'
 					sh 'git pull'
 					sh 'docker compose up -d --build --remove-orphans'
