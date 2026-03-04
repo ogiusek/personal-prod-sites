@@ -27,7 +27,7 @@ pipeline {
 			}
 			steps {
 				dir('/personal-prod-sites/ci-cd') {
-					sshagent(["${env.SSH_CRED_ID}"]) {
+					withCredentials([sshUserPrivateKey(credentialsId: "${env.SSH_CRED_ID}", keyFileVariable: 'SSH_KEY_FILE')]) {
 						sh 'git config --global --add safe.directory /personal-prod-sites'
 						sh 'git checkout ${GIT_BRANCH}'
 						sh 'git pull'
