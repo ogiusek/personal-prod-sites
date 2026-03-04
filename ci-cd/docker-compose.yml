@@ -1,16 +1,4 @@
 services:
-  jenkins:
-    build:
-      context: jenkins
-      network: host
-    container_name: jenkins_server
-    network_mode: host
-    restart: unless-stopped
-    user: root
-    volumes:
-      - ./jenkins/home:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/bin/docker:/usr/bin/docker
   nginx:
     build:
       context: nginx

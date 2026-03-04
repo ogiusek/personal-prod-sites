@@ -12,7 +12,14 @@ pipeline {
                 echo 'Stage Other runned!'
             }
         }
-        // sh 'docker compose up -d --build'
+        stage('Deploy') {
+            when { branch 'prod' }
+            steps {
+                dir('/personal-prod-sites') {
+                    sh 'docker compose up -d --build --remove-orphans'
+                }
+            }
+        }
     }
 
     post {
