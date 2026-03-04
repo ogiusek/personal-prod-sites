@@ -18,7 +18,7 @@ pipeline {
 		}
 		stage('Deploy') {
 			when {
-				expression { return env.BRANCH_NAME == 'prod' || env.BRANCH_NAME == 'origin/prod' }
+				expression { return env.BRANCH_NAME?.toLowerCase()?.contains('prod') }
 			}
 			steps {
 				dir('/personal-prod-sites') {
