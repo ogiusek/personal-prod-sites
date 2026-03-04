@@ -1,0 +1,17 @@
+groups:
+  - name: system_stats
+    rules:
+      - record: job:cpu_usage:percentage
+        expr: 100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
+
+      - record: job:ram_usage:bytes
+        expr: node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes
+
+      - record: job:disk_write:bytes_rate
+        expr: sum by (instance) (rate(node_disk_written_bytes_total[5m]))
+
+      - record: job:network_receive:bytes_rate
+        expr: sum by (instance) (rate(node_network_receive_bytes_total[5m]))
+
+      # - record: job:gpu_usage:percentage
+      #   expr: DCGM_FI_DEV_GPU_UTIL
