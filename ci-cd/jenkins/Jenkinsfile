@@ -16,6 +16,13 @@ pipeline {
 				echo 'Stage Other runned!'
 			}
 		}
+		stage('Logging') {
+			steps {
+				script {
+					echo "Current branch is: ${env.BRANCH_NAME}"
+				}
+			}
+		}
 		stage('Deploy') {
 			when {
 				expression { return env.BRANCH_NAME?.toLowerCase()?.contains('prod') }
