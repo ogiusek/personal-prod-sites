@@ -5,7 +5,7 @@ pipeline {
 		}
 	}
 	environment {
-		REPO_URL = 'https://github.com/your-org/your-repo.git';
+		REPO_URL = 'https://github.com/ogiusek/personal-prod-sites.git';
 		SSH_CRED_ID = "836d01e5-f47e-4801-a5e2-c274f8c511f0"
 	}
 
