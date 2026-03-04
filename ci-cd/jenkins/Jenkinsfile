@@ -4,8 +4,26 @@ pipeline {
     stages {
         stage('Debug') {
             steps {
-                echo 'Hello! The pipeline is running successfully.'
+                echo 'Stage Debug runned!'
             }
+        }
+        stage('Other') {
+            steps {
+                echo 'Stage Other runned!'
+            }
+        }
+        // sh 'docker compose up -d --build'
+    }
+
+    post {
+        always {
+            echo 'Cleanup'
+        }
+        success {
+            echo 'Success'
+        }
+        failure {
+            echo 'Failure'
         }
     }
 }
