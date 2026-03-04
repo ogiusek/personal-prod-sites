@@ -19,7 +19,7 @@ pipeline {
 			steps {
 				script {
 					echo "Current branch is: ${env.GIT_BRANCH}"
-					sh "${WORKSPACE}/ci/cd/jenkins/scripts/hello.sh"
+					sh "${WORKSPACE}/ci-cd/jenkins/scripts/hello.sh"
 				}
 			}
 		}
