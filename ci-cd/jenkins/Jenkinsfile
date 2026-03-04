@@ -13,9 +13,13 @@ pipeline {
 		stage('Sync Repo') {
 			steps {
 				// git "${REPO_URL}"
-				checkout scm:[
-					$class :'GitSCM',                                               branches :[[name :'*/main']],                                           userRemoteConfigs :[[url :env.REPO_URL, credentialsId :env.SSH_CRED_ID]]
-				]
+// ci-cd/jenkins/scripts/hello.sh
+				checkout scm
+				// checkout scm:[
+				// 	$ class :'GitSCM',
+				// 	        branches :[[name :'*/main']],
+				// 	        userRemoteConfigs :[[url :env.REPO_URL, credentialsId :env.SSH_CRED_ID]]
+				// ]
 			}
 		}
 		stage ('Logging') {
