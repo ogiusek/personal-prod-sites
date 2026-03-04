@@ -5,29 +5,20 @@ pipeline {
 		}
 	}
 	environment {
-		REPO_URL = 'https://github.com/ogiusek/personal-prod-sites.git';
-		SSH_CRED_ID = "836d01e5-f47e-4801-a5e2-c274f8c511f0"
 	}
 
 	stages {
 		stage('Sync Repo') {
 			steps {
-				// git "${REPO_URL}"
-// ci-cd/jenkins/scripts/hello.sh
 				checkout scm
-				// checkout scm:[
-				// 	$ class :'GitSCM',
-				// 	        branches :[[name :'*/main']],
-				// 	        userRemoteConfigs :[[url :env.REPO_URL, credentialsId :env.SSH_CRED_ID]]
-				// ]
 			}
 		}
 		stage ('Logging') {
 			steps {
-				script {
-					echo "Current branch is: ${env.GIT_BRANCH}"
-					sh "bash ${WORKSPACE}/ci-cd/jenkins/scripts/hello.sh"
-				}
+				// script {
+				echo "Current branch is: ${env.GIT_BRANCH}"
+				sh "bash ${WORKSPACE}/ci-cd/jenkins/scripts/hello.sh"
+				// }
 			}
 		}
 		stage ('Deploy') {
@@ -58,13 +49,6 @@ pipeline {
 //     agent {}
 //
 //     stages {
-//         stage('Build & Test') {
-//             steps {
-//                 echo 'Installing dependencies and running unit tests...'
-//                 // sh 'npm install && npm test' or './gradlew test'
-//             }
-//         }
-//
 //         stage('Deploy to Staging') {
 //             when { branch 'main' }
 //             steps {
