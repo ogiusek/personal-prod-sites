@@ -13,6 +13,17 @@ services:
     container_name: prod_grafana_server
     ports:
       - "8079:3000"
+    network_mode: host
     restart: unless-stopped
     volumes:
       - ./grafana/data:/var/lib/grafana
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prod_prometheus_server
+    network_mode: host
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/data:/prometheus
