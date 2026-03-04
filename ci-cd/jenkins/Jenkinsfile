@@ -4,8 +4,8 @@ pipeline {
 			label '' // An empty label string means "any"
 		}
 	}
-	environment {
-	}
+	// environment {
+	// }
 
 	stages {
 		stage('Sync Repo') {
