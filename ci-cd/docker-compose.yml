@@ -11,8 +11,8 @@ services:
       context: grafana
       network: host
     container_name: prod_grafana_server
-    ports:
-      - "8079:3000"
+    environment:
+      - GF_SERVER_HTTP_PORT=8079
     network_mode: host
     restart: unless-stopped
     volumes:
@@ -24,8 +24,6 @@ services:
     container_name: prod_prometheus_server
     network_mode: host
     restart: unless-stopped
-    ports:
-      - "9090:9090"
     volumes:
       - ./prometheus/config:/etc/prometheus
       - ./prometheus/data:/prometheus
