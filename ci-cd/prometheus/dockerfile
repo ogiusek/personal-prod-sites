@@ -6,8 +6,6 @@ USER root
 
 COPY ./config/ /etc/prometheus/
 
-EXPOSE 9090
-
 ENTRYPOINT [ "/bin/prometheus" ]
 
 CMD [ "--config.file=/etc/prometheus/prometheus.yml", \
