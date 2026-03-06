@@ -25,7 +25,5 @@ services:
     network_mode: host
     restart: unless-stopped
     volumes:
-      # - ./prometheus/config:/etc/prometheus
-      - ./prometheus/config/prometheus.yml:/etc/prometheus/prometheus.yml
-      - ./prometheus/config/rules.yml:/etc/prometheus/rules.yml
+      - ./prometheus/config:/etc/prometheus/
       - ./prometheus/data:/prometheus
