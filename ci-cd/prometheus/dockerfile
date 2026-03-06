@@ -2,6 +2,8 @@ FROM prom/prometheus:latest
 
 WORKDIR /etc/prometheus
 
+COPY ./config/ /etc/prometheus/
+
 EXPOSE 9090
 
 ENTRYPOINT [ "/bin/prometheus" ]
