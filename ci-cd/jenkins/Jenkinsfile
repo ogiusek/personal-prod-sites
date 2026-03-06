@@ -1,9 +1,9 @@
 pipeline {
 	agent {
-		docker { image 'python:3.9' }
-		// node {
-		// 	label '' // An empty label string means "any"
-		// }
+		// docker { image 'python:3.9' }
+		node {
+			label '' // An empty label string means "any"
+		}
 	}
 	// environment { }
 
