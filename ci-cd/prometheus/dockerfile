@@ -4,4 +4,5 @@ WORKDIR /etc/prometheus
 
 USER root
 
-COPY ./config/ /etc/prometheus/
+VOLUME ["data", "/prometheus"]
+VOLUME ["config", "/etc/prometheus"]
