@@ -24,5 +24,13 @@ services:
     container_name: prod_prometheus_server
     network_mode: host
     restart: unless-stopped
+    # volumes:
+    #   - ./prometheus/data:/prometheus
     volumes:
-      - ./prometheus/data:/prometheus
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
