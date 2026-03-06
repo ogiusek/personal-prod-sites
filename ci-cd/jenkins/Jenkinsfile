@@ -1,8 +1,9 @@
 pipeline {
 	agent {
-		node {
-			label '' // An empty label string means "any"
-		}
+		docker { image 'python:3.9' }
+		// node {
+		// 	label '' // An empty label string means "any"
+		// }
 	}
 	// environment { }
 
@@ -25,7 +26,6 @@ pipeline {
 			steps {
 				dir ("ci-cd") {
 					sh 'bash jenkins/scripts/deploy.sh'
-					// sh 'docker compose up -d --build --remove-orphans'
 				}
 			}
 		}
@@ -43,34 +43,3 @@ pipeline {
 		}
 	}
 }
-// pipeline {
-//     agent {}
-//
-//     stages {
-//         stage('Deploy to Staging') {
-//             when { branch 'main' }
-//             steps {
-//                 echo "Deploying ${env.BRANCH_NAME} to Staging Environment..."
-//                 // Add your deployment script/helm command here
-//             }
-//         }
-//
-//         stage('Quality Gate (Manual)') {
-//             // This pauses the pipeline for human verification
-//             when { branch 'main' }
-//             steps {
-//                 timeout(time: 1, unit: 'HOURS') {
-//                     input message: "Does Staging look good? Approve for Production?", ok: "Deploy!"
-//                 }
-//             }
-//         }
-//
-//         stage('Deploy to Production') {
-//             when { branch 'main' }
-//             steps {
-//                 echo 'Deploying to Production servers...'
-//                 // sh './deploy-prod.sh'
-//             }
-//         }
-//     }
-// }
