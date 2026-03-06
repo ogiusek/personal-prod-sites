@@ -18,9 +18,10 @@ services:
     volumes:
       - ./grafana/data:/var/lib/grafana
   prometheus:
-    build:
-      context: prometheus
-      network: host
+    # build:
+    #   context: prometheus
+    #   network: host
+    image: prom/prometheus:latest
     container_name: prod_prometheus_server
     network_mode: host
     restart: unless-stopped
