@@ -17,6 +17,12 @@ pipeline {
 				checkout scm
 			}
 		}
+		stage('Verify Tools') {
+			steps {
+				sh 'python3 --version'
+				sh 'docker --version'
+			}
+		}
 		stage ('Logging') {
 			steps {
 				echo "Current branch is: ${env.GIT_BRANCH}"
