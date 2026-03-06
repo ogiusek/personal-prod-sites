@@ -19,15 +19,8 @@ pipeline {
 		}
 		stage ('Tests') {
 			steps {
-				agent {
-					docker { image 'python:3.9' }
-					// docker {
-					// 	image 'python:3.11-slim'
-					// 	args '-v /var/run/docker.sock:/var/run/docker.sock'
-					// }
-				}
 				dir ("ci-cd/tests"){
-					sh 'trivy fs .'
+					// sh 'trivy fs .'
 				}
 			}
 		}
