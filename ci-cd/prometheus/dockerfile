@@ -3,6 +3,3 @@ FROM prom/prometheus:latest
 WORKDIR /etc/prometheus
 
 USER root
-
-VOLUME ["data", "/prometheus"]
-VOLUME ["config", "/etc/prometheus"]

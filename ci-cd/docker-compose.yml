@@ -24,6 +24,9 @@ services:
     container_name: prod_prometheus_server
     network_mode: host
     restart: unless-stopped
+    volumes:
+      - ./prometheus/data:/prometheus
+      - ./prometheus/config:/etc/prometheus
   node-exporter:
     image: prom/node-exporter:latest
     container_name: prod_node_exporter
