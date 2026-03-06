@@ -1,13 +1,8 @@
 pipeline {
 	agent {
-		// docker { image 'python:3.9' }
-		docker {
-			image 'python:3.11-slim'
-			args '-v /var/run/docker.sock:/var/run/docker.sock'
+		node {
+			label '' // An empty label string means "any"
 		}
-		// node {
-		// 	label '' // An empty label string means "any"
-		// }
 	}
 	// environment { }
 
@@ -17,16 +12,23 @@ pipeline {
 				checkout scm
 			}
 		}
-		stage('Verify Tools') {
-			steps {
-				sh 'python3 --version'
-				sh 'docker --version'
-			}
-		}
 		stage ('Logging') {
 			steps {
 				echo "Current branch is: ${env.GIT_BRANCH}"
-				sh "bash ci-cd/jenkins/scripts/hello.sh"
+			}
+		}
+		stage ('Tests') {
+			steps {
+				agent {
+					docker { image 'python:3.9' }
+					// docker {
+					// 	image 'python:3.11-slim'
+					// 	args '-v /var/run/docker.sock:/var/run/docker.sock'
+					// }
+				}
+				dir ("ci-cd/tests"){
+					sh 'trivy fs .'
+				}
 			}
 		}
 		stage ('Deploy') {
