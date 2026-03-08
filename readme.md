@@ -26,7 +26,7 @@ Solution: Conducted a deep-dive audit of the system architecture, application re
 
 ### 2. Jenkins "Docker-out-of-Docker" (DooD) Pathing
 Issue: Encountered volume mapping failures when using DooD. The Jenkins container couldn't resolve paths correctly when communicating with the host’s Docker socket.\
-Solution: To ensure persistence and proper execution, I standardized the volume mounting to the local host path /var/jenkins_home, aligning the container’s internal state with the physical storage of the Pi.
+Solution: To ensure persistence and proper execution, I standardized the volume mounting to the local host path `/var/jenkins_home`, aligning the container’s internal state with the physical storage of the Pi.
 
 
 ## Tech Stack
