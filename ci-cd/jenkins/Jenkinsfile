@@ -18,6 +18,12 @@ pipeline {
 			}
 		}
 		stage ('Security scans') {
+			agent {
+				docker {
+					image 'aquasec/trivy:latest'
+					args  '-v /var/run/docker.sock:/var/run/docker.sock'
+				}
+			}
 			steps {
 				dir ("ci-cd"){
 					sh 'trivy config --exit-code 1 --severity HIGH,CRITICAL .'
