@@ -6,5 +6,3 @@ RUN grafana-cli plugins install grafana-piechart-panel && \
     grafana-cli plugins install vertamedia-clickhouse-datasource && \
     grafana-cli plugins install grafana-polystat-panel && \
     grafana-cli plugins install grafana-clock-panel
-
-USER grafana
