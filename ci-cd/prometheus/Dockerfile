@@ -6,4 +6,4 @@ USER root
 
 COPY ./config/ /etc/prometheus/
 
-USER prometheus
+USER nobody
