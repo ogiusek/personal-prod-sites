@@ -31,8 +31,8 @@ Solution: To ensure persistence and proper execution, I standardized the volume 
 
 ## Tech Stack
 
-Infrastructure: Raspberry Pi, Docker, Docker Compose
-Proxy: Nginx
-CI/CD: Jenkins, Groovy (Pipelines)
-Security: Trivy
+Infrastructure: Raspberry Pi, Docker, Docker Compose\
+Proxy: Nginx\
+CI/CD: Jenkins, Groovy (Pipelines)\
+Security: Trivy\
 Monitoring: Prometheus, Grafana
