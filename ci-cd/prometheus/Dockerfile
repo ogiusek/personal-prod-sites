@@ -5,3 +5,5 @@ WORKDIR /etc/prometheus
 USER root
 
 COPY ./config/ /etc/prometheus/
+
+USER prometheus
