@@ -17,10 +17,13 @@ pipeline {
 				echo "Current branch is: ${env.GIT_BRANCH}"
 			}
 		}
-		stage ('Tests') {
+		stage ('Security scans') {
 			steps {
-				dir ("ci-cd/tests"){
-					// sh 'trivy fs .'
+				dir ("ci-cd"){
+					// sh 'trivy config --exit-code 1 --severity HIGH,CRITICAL docker-compose.yml'
+					// sh 'trivy config --exit-code 1 --severity HIGH,CRITICAL grafana/dockerfile'
+					// sh 'trivy config --exit-code 1 --severity HIGH,CRITICAL prometheus/dockerfile'
+					// sh 'trivy config --exit-code 1 --severity HIGH,CRITICAL nginx/dockerfile'
 				}
 			}
 		}
