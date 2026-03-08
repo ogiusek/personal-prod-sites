@@ -22,7 +22,6 @@ pipeline {
 				dockerfile {
 					filename 'security.Dockerfile'
 					dir 'ci-cd/jenkins/agent'
-					label 'docker-nodes'
 				}
 			}
 			steps {
