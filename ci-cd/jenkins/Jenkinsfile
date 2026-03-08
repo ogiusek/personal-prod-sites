@@ -19,9 +19,10 @@ pipeline {
 		}
 		stage ('Security scans') {
 			agent {
-				docker {
-					image 'aquasec/trivy:latest'
-					args  '-v /var/run/docker.sock:/var/run/docker.sock'
+				dockerfile {
+					filename 'trivy.Dockerfile'
+					dir 'ci-cd/jenkins/agent'
+					label 'docker-nodes'
 				}
 			}
 			steps {
