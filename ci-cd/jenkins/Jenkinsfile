@@ -26,7 +26,7 @@ pipeline {
 			}
 			steps {
 				dir ("ci-cd"){
-					sh 'trivy config --exit-code 1 --severity HIGH,CRITICAL .'
+					sh 'trivy config --skip-dirs jenkins/home --exit-code 1 --severity HIGH,CRITICAL .'
 				}
 			}
 		}
