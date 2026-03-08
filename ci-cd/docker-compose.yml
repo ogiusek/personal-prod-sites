@@ -30,7 +30,7 @@ services:
       - ./prometheus/data:/prometheus
 
   node-exporter:
-    image: prom/node-exporter:latest
+    image: prom/node-exporter:v1.10.2
     container_name: prod_node_exporter
     network_mode: host
     restart: unless-stopped

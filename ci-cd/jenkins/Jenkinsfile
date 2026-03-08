@@ -17,12 +17,19 @@ pipeline {
 				echo "Current branch is: ${env.GIT_BRANCH}"
 			}
 		}
-		stage ('Tests') {
+		stage ('Security scans') {
 			steps {
-				dir ("ci-cd/tests"){
-					// sh 'trivy fs .'
+				dir ("ci-cd"){
+					// sh 'trivy config --exit-code 1 --severity HIGH,CRITICAL docker-compose.yml'
+					// sh 'trivy config --exit-code 1 --severity HIGH,CRITICAL grafana/dockerfile'
+					// sh 'trivy config --exit-code 1 --severity HIGH,CRITICAL prometheus/dockerfile'
+					// sh 'trivy config --exit-code 1 --severity HIGH,CRITICAL nginx/dockerfile'
 				}
 			}
+			echo "Prometheus: $(sudo docker run --rm prom/prometheus --version 2>&1 | grep -oP 'version \K[0-9.]+')"
+			echo "Grafana:    $(sudo docker run --rm ci-cd-grafana --version 2>&1 | grep -oP 'version [0-9.]+')"
+			echo "Jenkins:    $(sudo docker run --rm jenkins-jenkins --version)"
+			echo "Node-Exp:   $(sudo docker run --rm prom/node-exporter --version 2>&1 | grep -oP 'version [0-9.]+')"
 		}
 		stage ('Deploy') {
 			when {
