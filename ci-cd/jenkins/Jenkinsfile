@@ -20,7 +20,7 @@ pipeline {
 		stage ('Security scans') {
 			agent {
 				dockerfile {
-					filename 'trivy.Dockerfile'
+					filename 'security.Dockerfile'
 					dir 'ci-cd/jenkins/agent'
 					label 'docker-nodes'
 				}
