@@ -42,15 +42,15 @@ pipeline {
 		}
 	}
 
-	post {
-		always {
-			echo 'Cleanup'
-		}
-		success {
-			echo 'Success'
-		}
-		failure {
-			echo 'Failure'
-		}
-	}
+	// post {
+	// 	always {
+	// 		echo 'Cleanup'
+	// 	}
+	// 	success {
+	// 		echo 'Success'
+	// 	}
+	// 	failure {
+	// 		echo 'Failure'
+	// 	}
+	// }
 }
